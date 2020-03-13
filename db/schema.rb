@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_12_224919) do
+ActiveRecord::Schema.define(version: 2020_03_13_010013) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -49,6 +49,9 @@ ActiveRecord::Schema.define(version: 2020_03_12_224919) do
     t.string "student_number"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "school_id"
+    t.index ["school_id"], name: "index_students_on_school_id"
   end
 
+  add_foreign_key "students", "schools"
 end
